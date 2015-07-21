@@ -152,7 +152,8 @@ public class Snake {
         List<Integer> scores = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(new File("C:\\Users\\Szamani\\IdeaProjects\\tamrin32Clar\\src\\best.txt")));
+            BufferedReader br = new BufferedReader(new FileReader(new File
+			("C:\\Users\\Szamani\\IdeaProjects\\snake\\src\\best.txt"))); // you may need to change this
             String nameTemp = br.readLine();
             String scoreTemp = br.readLine();
 
@@ -290,7 +291,8 @@ public class Snake {
 
     private void saveRecord() {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\Szamani\\IdeaProjects\\snake\\src\\best.txt", true)); // you may need to change this :)
+            BufferedWriter bw = new BufferedWriter(new FileWriter
+			("C:\\Users\\Szamani\\IdeaProjects\\snake\\src\\best.txt", true)); // you may need to change this also :)
 
             bw.write(playerName);
             bw.newLine();
@@ -343,7 +345,8 @@ public class Snake {
         if (isEnd)
             return;
 
-        if (Math.abs(blocks.peekFirst().getX() - regimeRectangle.getX()) < 10&& Math.abs(blocks.peekFirst().getY() - regimeRectangle.getY()) < 10&&
+        if (Math.abs(blocks.peekFirst().getX() - regimeRectangle.getX()) < 10&&
+		Math.abs(blocks.peekFirst().getY() - regimeRectangle.getY()) < 10&&
                 System.currentTimeMillis() - currentTime <= 10000) {
 
             regimeRectangle.setX(1200);
@@ -386,7 +389,8 @@ public class Snake {
         List<Block> blockTemp = new ArrayList<>(blocks);
 
         for (int i = 0; i < blockTemp.size(); i++)
-            if (blockTemp.get(i).getX() < regimeX&& blockTemp.get(i).getY() < regimeY&& blockTemp.get(i).getX() + 10 > regimeX&& blockTemp.get(i).getY() + 10 > regimeY) {
+            if (blockTemp.get(i).getX() < regimeX&& blockTemp.get(i).getY() < regimeY&&
+		blockTemp.get(i).getX() + 10 > regimeX&& blockTemp.get(i).getY() + 10 > regimeY) {
                 regimeX = Math.abs(random.nextInt()) % 400 + 10;
                 regimeY = Math.abs(random.nextInt()) % 400 + 10;
             }
@@ -401,7 +405,8 @@ public class Snake {
         if (isEnd)
             return;
 
-        if (Math.abs(blocks.peekFirst().getX() - feedRectangle.getX()) < 10&& Math.abs(blocks.peekFirst().getY() - feedRectangle.getY()) < 10) {
+        if (Math.abs(blocks.peekFirst().getX() - feedRectangle.getX()) < 10&&
+		Math.abs(blocks.peekFirst().getY() - feedRectangle.getY()) < 10) {
             feedRectangle.setX(1200);
             isFeed = false;
             ++feedCounter2;
@@ -429,7 +434,8 @@ public class Snake {
         List<Block> blockTemp = new ArrayList<>(blocks);
 
         for (int i = 0; i < blockTemp.size(); i++)
-            if (blockTemp.get(i).getX() < feedX&& blockTemp.get(i).getY() < feedY&& blockTemp.get(i).getX() + 10 > feedX&& blockTemp.get(i).getY() + 10 > feedY) {
+            if (blockTemp.get(i).getX() < feedX&& blockTemp.get(i).getY() < feedY&& 
+		blockTemp.get(i).getX() + 10 > feedX&& blockTemp.get(i).getY() + 10 > feedY) {
                 feedX = Math.abs(random.nextInt()) % 400 + 10;
                 feedY = Math.abs(random.nextInt()) % 400 + 60;
             }
@@ -455,8 +461,10 @@ public class Snake {
         obstacle1Y = Math.abs(random.nextInt()) % 400 + 10;
 
         for (int i = 0; i < blockTemp.size(); i++)
-            if (((blockTemp.get(i).getX() < obstacle1X + 150&& blockTemp.get(i).getY() < obstacle1Y + 150)|| (blockTemp.get(i).getX() > obstacle1X + 150&& blockTemp.get(i).getY() > obstacle1Y + 150))&&
-                    (feedRectangle.getX() < obstacle1X&& feedRectangle.getY() < obstacle1Y)|| (feedRectangle.getX() + 20 > obstacle1X&& feedRectangle.getY() + 20 > obstacle1Y)) {
+            if (((blockTemp.get(i).getX() < obstacle1X + 150&& blockTemp.get(i).getY() < obstacle1Y + 150)||
+		(blockTemp.get(i).getX() > obstacle1X + 150&& blockTemp.get(i).getY() > obstacle1Y + 150))&&
+                    (feedRectangle.getX() < obstacle1X&& feedRectangle.getY() < obstacle1Y)||
+					(feedRectangle.getX() + 20 > obstacle1X&& feedRectangle.getY() + 20 > obstacle1Y)) {
                 obstacle1X = Math.abs(random.nextInt()) % 400 + 10;
                 obstacle1Y = Math.abs(random.nextInt()) % 400 + 10;
             }
@@ -465,8 +473,10 @@ public class Snake {
         obstacle2Y = Math.abs(random.nextInt()) % 400 + 10;
 
         for (int i = 0; i < blockTemp.size(); i++)
-            if (((blockTemp.get(i).getX() < obstacle2X + 150&& blockTemp.get(i).getY() < obstacle2Y + 150) ||(blockTemp.get(i).getX() > obstacle2X + 150&& blockTemp.get(i).getY() > obstacle2Y + 150)) &&
-                    (feedRectangle.getX() < obstacle2X - 10&& feedRectangle.getY() < obstacle2Y)|| (feedRectangle.getX() + 20 > obstacle2X&& feedRectangle.getY() + 20 > obstacle2Y)) {
+            if (((blockTemp.get(i).getX() < obstacle2X + 150&& blockTemp.get(i).getY() < obstacle2Y + 150) ||
+		(blockTemp.get(i).getX() > obstacle2X + 150&& blockTemp.get(i).getY() > obstacle2Y + 150)) &&
+                    (feedRectangle.getX() < obstacle2X - 10&& feedRectangle.getY() < obstacle2Y)||
+					(feedRectangle.getX() + 20 > obstacle2X&& feedRectangle.getY() + 20 > obstacle2Y)) {
                 obstacle2X = Math.abs(random.nextInt()) % 400 + 10;
                 obstacle2Y = Math.abs(random.nextInt()) % 400 + 10;
             }
