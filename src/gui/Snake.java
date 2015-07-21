@@ -290,7 +290,7 @@ public class Snake {
 
     private void saveRecord() {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\Szamani\\IdeaProjects\\tamrin32Clar\\src\\best.txt", true));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\Users\\Szamani\\IdeaProjects\\snake\\src\\best.txt", true)); // you may need to change this :)
 
             bw.write(playerName);
             bw.newLine();
